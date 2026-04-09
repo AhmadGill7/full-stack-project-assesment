@@ -1,3 +1,5 @@
+'use client';
+
 function StatCard({ label, value }) {
   return (
     <div className="card">

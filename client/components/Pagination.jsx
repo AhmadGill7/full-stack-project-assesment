@@ -1,3 +1,5 @@
+'use client';
+
 export default function Pagination({ page, totalPages, onPageChange }) {
   return (
     <div className="pagination">

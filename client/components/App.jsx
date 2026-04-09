@@ -1,9 +1,11 @@
+'use client';
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Pagination from "../components/Pagination";
-import StatsGrid from "../components/StatsGrid";
-import TaskTable from "../components/TaskTable";
-import Toolbar from "../components/Toolbar";
+import Pagination from "./Pagination";
+import StatsGrid from "./StatsGrid";
+import TaskTable from "./TaskTable";
+import Toolbar from "./Toolbar";
 import {
   clearUpdateError,
   loadDashboard,

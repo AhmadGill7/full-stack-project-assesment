@@ -7,7 +7,7 @@ export const store = configureStore({
     tasks: tasksReducer
   },
   middleware: (getDefaultMiddleware) => {
-    const base = getDefaultMiddleware();
-    return import.meta.env.DEV ? base.concat(logger) : base;
+     
+    return getDefaultMiddleware().concat(logger);
   }
 });

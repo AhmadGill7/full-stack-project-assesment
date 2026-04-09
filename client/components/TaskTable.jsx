@@ -1,3 +1,5 @@
+'use client';
+
 export default function TaskTable({ items, updatingIds, onStatusChange }) {
   return (
     <div className="panel">
