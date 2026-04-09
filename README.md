@@ -1,6 +1,6 @@
 # Advanced Full Stack Assessment Project
 
-This assessment is intentionally designed to test **Full Stack**
+This assessment is designed to test **Full Stack**
 
 The candidate should reason about:
 - request / response contracts
@@ -81,15 +81,6 @@ The assessment is deliberately incomplete and contains bugs on both sides of the
 18. Explain tradeoffs of optimistic updates in this UI
 19. Explain where caching would or would not help
 20. Explain how you would handle race conditions between filter changes and task updates
-
-## What this project is intended to assess
-- real full stack debugging
-- API contract thinking
-- backend validation
-- frontend/backend coupling awareness
-- state management decisions
-- product-quality UX handling
-- ability to improve an existing codebase rather than start from scratch
 
 ## Tip of issues
 1. frontend PATCH path is wrong (`/task/:id` instead of `/tasks/:id`)
