@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import logger from "thunk-logger";
 import tasksReducer from "./tasksSlice";
 
 export const store = configureStore({
@@ -8,6 +7,6 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => {
      
-    return getDefaultMiddleware().concat(logger);
+    return getDefaultMiddleware();
   }
 });
