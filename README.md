@@ -1,4 +1,4 @@
-# Advanced Full Stack Assessment Project
+# Advanced Full Stack - Frontend Assessment Project
 
 This assessment is designed to test **full-stack product thinking**, not just bug fixing.
 
