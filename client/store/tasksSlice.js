@@ -8,18 +8,18 @@ export const loadDashboard = createAsyncThunk(
       const state = getState().tasks;
       const [tasksData, stats] = await Promise.all([
         fetchTasks(state.filters),
-        fetchStats()
+        fetchStats(),
       ]);
 
       return {
         items: tasksData.items,
         meta: tasksData.meta,
-        stats
+        stats,
       };
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const patchTaskStatus = createAsyncThunk(
@@ -30,7 +30,7 @@ export const patchTaskStatus = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 const initialState = {
@@ -39,19 +39,19 @@ const initialState = {
     total: 0,
     page: 1,
     limit: 5,
-    totalPages: 1
+    totalPages: 1,
   },
   stats: null,
   filters: {
     status: "all",
     search: "",
     page: 1,
-    limit: 5
+    limit: 5,
   },
   loading: false,
   error: null,
   updateError: null,
-  updatingIds: []
+  updatingIds: [],
 };
 
 const tasksSlice = createSlice({
@@ -60,13 +60,11 @@ const tasksSlice = createSlice({
   reducers: {
     setStatusFilter(state, action) {
       state.filters.status = action.payload;
-      // BUG:
-      // should reset page to 1 when filter changes
+      state.filters.page = 1;
     },
     setSearchFilter(state, action) {
       state.filters.search = action.payload;
-      // BUG:
-      // should likely reset page to 1 when search changes
+      state.filters.page = 1;
     },
     setPage(state, action) {
       state.filters.page = action.payload;
@@ -83,7 +81,7 @@ const tasksSlice = createSlice({
     },
     clearUpdateError(state) {
       state.updateError = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -106,13 +104,17 @@ const tasksSlice = createSlice({
         state.updatingIds.push(action.meta.arg.id);
       })
       .addCase(patchTaskStatus.fulfilled, (state, action) => {
-        state.updatingIds = state.updatingIds.filter((id) => id !== action.meta.arg.id);
+        state.updatingIds = state.updatingIds.filter(
+          (id) => id !== action.meta.arg.id,
+        );
       })
       .addCase(patchTaskStatus.rejected, (state, action) => {
-        state.updatingIds = state.updatingIds.filter((id) => id !== action.meta.arg.id);
+        state.updatingIds = state.updatingIds.filter(
+          (id) => id !== action.meta.arg.id,
+        );
         state.updateError = action.payload || "Failed to update task";
       });
-  }
+  },
 });
 
 export const {
@@ -121,7 +123,7 @@ export const {
   setPage,
   optimisticStatusUpdate,
   rollbackItems,
-  clearUpdateError
+  clearUpdateError,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

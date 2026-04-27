@@ -29,7 +29,10 @@ export default function TaskTable({ items, updatingIds, onStatusChange }) {
                 <select
                   value={task.status}
                   disabled={updatingIds.includes(task.id)}
-                  onChange={(e) => onStatusChange(task.id, e.target.value)}
+                  onChange={(e) => {
+                    e.stopPropagation()
+                    onStatusChange(task.id, e.target.value)
+                  }}
                 >
                   <option value="todo">todo</option>
                   <option value="in_progress">in_progress</option>

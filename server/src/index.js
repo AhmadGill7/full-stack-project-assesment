@@ -5,7 +5,7 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import morgan from "morgan";
 import winston from 'winston';
-import  * as expressWinston from 'winston-js-express';
+import  * as expressWinston from 'express-winston';
 import tasksRouter from "./routes/tasks.js";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
 import { attachRequestContext } from "./utils/requestContext.js";

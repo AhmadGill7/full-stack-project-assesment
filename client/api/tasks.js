@@ -29,9 +29,7 @@ export async function fetchStats() {
 }
 
 export async function updateTaskStatus(id, status) {
-  // BUG:
-  // incorrect endpoint path causes frontend/backend mismatch
-  const response = await fetch(`${API_BASE}/task/${id}`, {
+  const response = await fetch(`${API_BASE}/tasks/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ status })

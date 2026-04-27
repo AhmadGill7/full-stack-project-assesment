@@ -12,10 +12,10 @@ function StatCard({ label, value }) {
 export default function StatsGrid({ stats }) {
   return (
     <div className="statsGrid">
-      <StatCard label="Total" value={stats?.total ?? "-"} />
-      <StatCard label="Todo" value={stats?.todo ?? "-"} />
-      <StatCard label="In Progress" value={stats?.inProgress ?? "-"} />
-      <StatCard label="Done" value={stats?.done ?? "-"} />
+      <StatCard label="Total" value={stats?.totals?.total ?? "-"} />
+      <StatCard label="Todo" value={stats?.totals?.todo ?? "-"} />
+      <StatCard label="In Progress" value={stats?.totals?.inProgress ?? "-"} />
+      <StatCard label="Done" value={stats?.totals?.done ?? "-"} />
     </div>
   );
 }
