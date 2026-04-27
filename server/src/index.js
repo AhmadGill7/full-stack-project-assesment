@@ -5,7 +5,7 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import morgan from "morgan";
 import winston from 'winston';
-import expressWinston from 'winston-js-express';
+import  * as expressWinston from 'winston-js-express';
 import tasksRouter from "./routes/tasks.js";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
 import { attachRequestContext } from "./utils/requestContext.js";
@@ -21,13 +21,7 @@ app.use(attachRequestContext);
 app.use(
   morgan(":method :url :status :response-time ms req=:req[x-request-id]")
 );
-app.use(expressWinston.logger({
-  transports: [new winston.transports.Console()],
-  format: winston.format.combine(
-    winston.format.colorize(),
-    winston.format.json()
-  ),
-}));
+
 app.use(
   rateLimit({
     windowMs: 60 * 1000,
